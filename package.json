@@ -1,0 +1,57 @@
+{
+  "name": "checkout-library-js",
+  "version": "1.0.0",
+  "description": "Checkout library js",
+  "main": "build/index.js",
+  "types": "build/types/index.d.ts",
+  "scripts": {
+    "start": "npx http-server --port=3000 ./demo",
+    "build:prod": "npx rimraf ./build && npx webpack --config webpack.config.js && npx tsc",
+    "build:demo": "npx rimraf ./demo/build && npx webpack --config webpack.demo.js && npx tsc",
+    "trypublish": "npm publish || true"
+  },
+  "author": "Parcela Express <contato@parcelaexpress.com.br>",
+  "license": "MIT",
+  "homepage": "https://github.com/Parcela-Express/checkout-library-js#readme",
+  "keywords": [
+    "component",
+    "web",
+    "js"
+  ],
+  "devDependencies": {
+    "@babel/cli": "^7.16.0",
+    "@babel/core": "^7.15.8",
+    "@babel/plugin-proposal-class-properties": "^7.16.0",
+    "@babel/plugin-transform-typescript": "^7.15.8",
+    "@babel/polyfill": "^7.12.1",
+    "@babel/preset-env": "^7.16.4",
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^4.32.0",
+    "@typescript-eslint/parser": "^4.33.0",
+    "babel-eslint": "^10.1.0",
+    "babel-loader": "^8.2.3",
+    "babel-preset-minify": "^0.5.0",
+    "css-loader": "^6.5.1",
+    "eslint": "^7.32.0",
+    "file-loader": "^6.2.0",
+    "html-webpack-plugin": "^5.5.0",
+    "http-server": "^14.0.0",
+    "jest": "^27.4.3",
+    "mini-css-extract-plugin": "^2.4.5",
+    "optimize-css-assets-webpack-plugin": "^6.0.1",
+    "prettier": "^2.5.0",
+    "prettier-webpack-plugin": "^1.2.0",
+    "rimraf": "^3.0.2",
+    "style-loader": "^3.3.1",
+    "terser-webpack-plugin": "^5.2.5",
+    "typescript": "^4.5.2",
+    "url-loader": "^4.1.1",
+    "webpack": "^5.64.4",
+    "webpack-cli": "^4.9.1",
+    "webpack-dev-server": "4.6.0"
+  },
+  "dependencies": {
+    "@adyen/adyen-web": "^3.20.0",
+    "joi": "^17.5.0"
+  }
+}
