@@ -1,4 +1,4 @@
-# Parcela Express Checkout Component JS
+# Parcela Express Checkout Library JS
 
 [![npm](https://img.shields.io/npm/v/@parcelaexpress/checkout-library-js.svg)](https://www.npmjs.com/package/@parcelaexpress/checkout-library-js)
 
