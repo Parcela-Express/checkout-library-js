@@ -1,5 +1,5 @@
 {
-  "name": "checkout-library-js",
+  "name": "@parcelaexpress/checkout-library-js",
   "version": "1.0.0",
   "description": "Checkout library js",
   "main": "build/index.js",
