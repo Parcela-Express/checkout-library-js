@@ -30,6 +30,13 @@ const schema = Joi.object({
       street: Joi.string().required(),
     }),
   }).required(),
+  has_split_rules: Joi.boolean(),
+  split_rules: Joi.array().items(
+    Joi.object({
+      amount: Joi.number().required(),
+      seller_id: Joi.string().required(),
+    })
+  ),
   pre_capture: Joi.boolean(),
   onChange: Joi.function().required(),
   onSubmit: Joi.function().required(),
