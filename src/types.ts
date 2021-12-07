@@ -20,6 +20,11 @@ type InstallmentPlan = {
   number_installments: number;
 }
 
+type Splits = {
+  amount: number;
+  seller_id: string;
+}
+
 export type CustomerData = {
   amount_cents: number;
   description: string;
@@ -27,6 +32,8 @@ export type CustomerData = {
   installment_plan: InstallmentPlan;
   customer: Customer;
   pre_capture: boolean;
+  split_rules?: Array<Splits>;
+  has_split_rules?: boolean;
 }
 
 export type CheckoutConfiguration = {
@@ -55,6 +62,8 @@ export type ParsedData = {
   sale_id?: string;
   success_return_url?: string;
   error_return_url?: string;
+  has_split_rules?: boolean;
+  split_rules?: Splits[];
 }
 
 type CardAttributes = {

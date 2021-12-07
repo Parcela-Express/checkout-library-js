@@ -152,11 +152,19 @@ export class Checkout {
             parsedData.error_return_url = this.errorReturnUrl;
           }
 
+          if (
+            this.customerData.has_split_rules &&
+            this.customerData.split_rules.length
+          ) {
+            parsedData.has_split_rules = true;
+            parsedData.split_rules = this.customerData.split_rules;
+          }
+
           const baseUrl =
             this.apiUrl || "https://api-prod.parcelaexpress.com.br";
 
           window
-            .fetch(baseUrl + `/v1/payments/sellers/${this.sellerKey}`, {
+            .fetch(baseUrl + `/v2/payments/sellers/${this.sellerKey}`, {
               method: "POST",
               body: JSON.stringify(parsedData),
               headers: { "Content-Type": "application/json" },
