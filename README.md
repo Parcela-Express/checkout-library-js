@@ -62,6 +62,17 @@ const customerData = {
         },
     },
     pre_capture: false,
+    has_split_rules: true,
+            split_rules: [
+                {
+                    amount: 10000,
+                    seller_id: "d6a245d2-b705-42a1-8d4a-0956aaa00fed",
+                },
+                {
+                    amount: 5000,
+                    seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
+                }
+            ],
 }
 
 const config = {
@@ -82,3 +93,6 @@ const config = {
 const checkoutInstance = new window.Checkout.Checkout(config);
 checkoutInstance.mount('checkout-container');
   ```
+
+
+Os campos has_split_rules e split_rules(opcionais) são usados para dividir o valor da venda entre os estabelecimentos
