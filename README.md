@@ -63,16 +63,17 @@ const customerData = {
     },
     pre_capture: false,
     has_split_rules: true,
-            split_rules: [
-                {
-                    amount: 10000,
-                    seller_id: "d6a245d2-b705-42a1-8d4a-0956aaa00fed",
-                },
-                {
-                    amount: 5000,
-                    seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
-                }
-            ],
+    split_rules: [
+        {
+            amount: 10000,
+            seller_id: "d6a245d2-b705-42a1-8d4a-0956aaa00fed",
+        },
+        {
+            amount: 5000,
+            seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
+        }
+    ],
+    confirmation_required: false
 }
 
 const config = {
