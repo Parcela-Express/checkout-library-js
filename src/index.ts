@@ -144,6 +144,11 @@ export class Checkout {
             installment_plan: this.customerData.installment_plan,
             customer: this.customerData.customer,
           };
+          if (this.customerData.confirmation_required) {
+            parsedData.confirmation_required =
+              this.customerData.confirmation_required;
+          }
+
           if (this.successReturnUrl) {
             parsedData.success_return_url = this.successReturnUrl;
           }

@@ -34,6 +34,7 @@ export type CustomerData = {
   pre_capture: boolean;
   split_rules?: Array<Splits>;
   has_split_rules?: boolean;
+  confirmation_required?: boolean;
 }
 
 export type CheckoutConfiguration = {
@@ -64,6 +65,7 @@ export type ParsedData = {
   error_return_url?: string;
   has_split_rules?: boolean;
   split_rules?: Splits[];
+  confirmation_required?: boolean;
 }
 
 type CardAttributes = {

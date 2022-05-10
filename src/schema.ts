@@ -37,6 +37,7 @@ const schema = Joi.object({
       seller_id: Joi.string().required(),
     })
   ),
+  confirmation_required: Joi.boolean(),
   pre_capture: Joi.boolean(),
   onChange: Joi.function().required(),
   onSubmit: Joi.function().required(),
