@@ -35,6 +35,7 @@ export type CustomerData = {
   split_rules?: Array<Splits>;
   has_split_rules?: boolean;
   confirmation_required?: boolean;
+  extract_identification?: string;
 }
 
 export type CheckoutConfiguration = {
@@ -66,6 +67,7 @@ export type ParsedData = {
   has_split_rules?: boolean;
   split_rules?: Splits[];
   confirmation_required?: boolean;
+  extract_identification?: string;
 }
 
 type CardAttributes = {
