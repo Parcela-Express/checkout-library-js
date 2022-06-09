@@ -18,6 +18,7 @@ export class Checkout {
   private onSubmitError: (state: any) => void;
   private beforeSubmit: (state: any) => void;
   private afterSubmit: (state: any) => void;
+  private showPayButton?: boolean;
 
   constructor(config: CheckoutConfiguration) {
     if (!config) {
@@ -37,6 +38,7 @@ export class Checkout {
       onSubmitError,
       beforeSubmit,
       afterSubmit,
+      showPayButton,
     } = config;
 
     this.environment = environment;
@@ -51,6 +53,7 @@ export class Checkout {
     this.onSubmitError = onSubmitError;
     this.beforeSubmit = beforeSubmit;
     this.afterSubmit = afterSubmit;
+    this.showPayButton = showPayButton;
   }
 
   mount(domNodeContainer: string) {
@@ -69,7 +72,7 @@ export class Checkout {
       clientKey: this.clientKey,
       paymentMethodsResponse: paymentMethods,
       hasHolderName: true,
-      showPayButton: true,
+      showPayButton: this.showPayButton ? this.showPayButton : false,
       translations: {
         "pt-br": {
           payButton: "Pagamento",
@@ -110,6 +113,7 @@ export class Checkout {
           errorReturnUrl: this.errorReturnUrl,
           apiUrl: this.apiUrl,
           sellerKey: this.sellerKey,
+          showPayButton: this.showPayButton,
         });
 
         if (error) {

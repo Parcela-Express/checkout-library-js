@@ -50,6 +50,7 @@ export type CheckoutConfiguration = {
   onSubmitError?: (state: any) => void;
   beforeSubmit?: (state: any) => void;
   afterSubmit?: (state: any) => void;
+  showPayButton?: boolean;
 };
 
 export type ParsedData = {

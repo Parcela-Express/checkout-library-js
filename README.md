@@ -89,6 +89,7 @@ const config = {
     onSubmitError: (state) => console.log('onerr', state),
     beforeSubmit: (state) => console.log("before submit", state),
     afterSubmit: (state) => console.log("after submit", state),
+    showPayButton: true
 };
 
 const checkoutInstance = new window.Checkout.Checkout(config);
