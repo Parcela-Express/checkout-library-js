@@ -72,7 +72,7 @@ export class Checkout {
       clientKey: this.clientKey,
       paymentMethodsResponse: paymentMethods,
       hasHolderName: true,
-      showPayButton: this.showPayButton ? this.showPayButton : false,
+      showPayButton: this.showPayButton ? this.showPayButton : true,
       translations: {
         "pt-br": {
           payButton: "Pagamento",
