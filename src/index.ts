@@ -60,7 +60,7 @@ export class Checkout {
     const elementToRender = document.getElementById(domNodeContainer);
     const threeCheckout = document.createElement("div");
     threeCheckout.setAttribute("id", "three-checkout");
-    document.body.insertBefore(threeCheckout, elementToRender);
+    elementToRender.appendChild(threeCheckout);
 
     if (!elementToRender) {
       throw `Element with id of ${domNodeContainer} not found`;
