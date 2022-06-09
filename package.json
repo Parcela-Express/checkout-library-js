@@ -1,6 +1,6 @@
 {
   "name": "@parcelaexpress/checkout-library-js",
-  "version": "1.3.0",
+  "version": "1.3.1",
   "description": "Checkout library js",
   "main": "build/index.js",
   "types": "build/types/index.d.ts",
@@ -8,7 +8,7 @@
     "start": "npx http-server --port=3000 ./demo",
     "build:prod": "npx rimraf ./build && npx webpack --config webpack.config.js && npx tsc",
     "build:demo": "npx rimraf ./demo/build && npx webpack --config webpack.demo.js && npx tsc",
-    "trypublish": "npm publish || true"
+    "trypublish": "yarn build:prod && npm publish --access=public"
   },
   "author": "Parcela Express <contato@parcelaexpress.com.br>",
   "license": "MIT",
