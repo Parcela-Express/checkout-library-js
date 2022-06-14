@@ -162,6 +162,14 @@ export class Checkout {
             parsedData.error_return_url = this.errorReturnUrl;
           }
 
+          if (this.customerData.active_3ds) {
+            parsedData.active_3ds = this.customerData.active_3ds;
+          }
+
+          if (this.customerData.risk_custom_field) {
+            parsedData.risk_custom_field = this.customerData.risk_custom_field;
+          }
+
           if (
             this.customerData.has_split_rules &&
             this.customerData.split_rules.length
