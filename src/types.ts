@@ -35,6 +35,8 @@ export type CustomerData = {
   split_rules?: Array<Splits>;
   has_split_rules?: boolean;
   confirmation_required?: boolean;
+  active_3ds?: boolean;
+  risk_custom_field?: string;
 }
 
 export type CheckoutConfiguration = {
@@ -67,6 +69,8 @@ export type ParsedData = {
   has_split_rules?: boolean;
   split_rules?: Splits[];
   confirmation_required?: boolean;
+  active_3ds?: boolean;
+  risk_custom_field?: string;
 }
 
 type CardAttributes = {

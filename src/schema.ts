@@ -49,6 +49,8 @@ const schema = Joi.object({
   apiUrl: Joi.string(),
   sellerKey: Joi.string().uuid().required(),
   showPayButton: Joi.boolean(),
+  active_3ds: Joi.boolean(),
+  risk_custom_field: Joi.boolean(),
 });
 
 export default schema;
