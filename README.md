@@ -76,7 +76,8 @@ const customerData = {
         }
     ],
     confirmation_required: false,
-    active_3ds: true
+    active_3ds: true,
+    service_id: "seu id (opcional)"
 }
 
 const config = {

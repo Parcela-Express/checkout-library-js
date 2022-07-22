@@ -40,6 +40,7 @@ export type CustomerData = {
   extract_identification?: string;
   active_3ds?: boolean;
   risk_custom_field?: string;
+  service_id?: string;
 }
 
 export type CheckoutConfiguration = {
@@ -75,6 +76,7 @@ export type ParsedData = {
   extract_identification?: string;
   active_3ds?: boolean;
   risk_custom_field?: string;
+  service_id?: string;
 }
 
 type CardAttributes = {
