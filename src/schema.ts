@@ -54,6 +54,7 @@ const schema = Joi.object({
   showPayButton: Joi.boolean(),
   active_3ds: Joi.boolean(),
   risk_custom_field: Joi.boolean(),
+  service_id: Joi.string(),
 });
 
 export default schema;

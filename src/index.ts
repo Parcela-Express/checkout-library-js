@@ -171,6 +171,10 @@ export class Checkout {
             parsedData.active_3ds = this.customerData.active_3ds;
           }
 
+          if (this.customerData.service_id) {
+            parsedData.service_id = this.customerData.service_id;
+          }
+
           if (this.customerData.risk_custom_field) {
             parsedData.risk_custom_field = this.customerData.risk_custom_field;
           }
