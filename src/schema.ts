@@ -39,6 +39,7 @@ const schema = Joi.object({
       description: Joi.string(),
     })
   ),
+  extract_identification: Joi.string(),
   confirmation_required: Joi.boolean(),
   pre_capture: Joi.boolean(),
   onChange: Joi.function().required(),
@@ -51,6 +52,8 @@ const schema = Joi.object({
   apiUrl: Joi.string(),
   sellerKey: Joi.string().uuid().required(),
   showPayButton: Joi.boolean(),
+  active_3ds: Joi.boolean(),
+  risk_custom_field: Joi.boolean(),
 });
 
 export default schema;

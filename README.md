@@ -75,7 +75,8 @@ const customerData = {
           no_cost: true,
         }
     ],
-    confirmation_required: false
+    confirmation_required: false,
+    active_3ds: true
 }
 
 const config = {

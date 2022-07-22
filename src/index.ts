@@ -149,6 +149,11 @@ export class Checkout {
             installment_plan: this.customerData.installment_plan,
             customer: this.customerData.customer,
           };
+          if (this.customerData.extract_identification) {
+            parsedData.extract_identification =
+              this.customerData.extract_identification;
+          }
+
           if (this.customerData.confirmation_required) {
             parsedData.confirmation_required =
               this.customerData.confirmation_required;
@@ -160,6 +165,14 @@ export class Checkout {
 
           if (this.errorReturnUrl) {
             parsedData.error_return_url = this.errorReturnUrl;
+          }
+
+          if (this.customerData.active_3ds) {
+            parsedData.active_3ds = this.customerData.active_3ds;
+          }
+
+          if (this.customerData.risk_custom_field) {
+            parsedData.risk_custom_field = this.customerData.risk_custom_field;
           }
 
           if (
