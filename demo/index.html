@@ -44,12 +44,13 @@
                   seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
               }
             ],
-            confirmation_required: false
+            confirmation_required: false,
+            active_3ds: true
         }
         const config = {
             clientKey: 'test_IBIF7UD6SNB7ZJG3KVEGM3UP5M57BJ4B',
             environment: 'TEST',
-            apiUrl: "https://sandbox.parcelaexpress.com.br/",
+            apiUrl: "https://sandbox.parcelaexpress.com.br",
             sellerKey: "e137d1b6-8f84-4377-ab5c-d27dd24415bd",
             successReturnUrl: "https://success-url.com.br",
             errorReturnUrl: "https://error-url.com.br",
@@ -59,6 +60,7 @@
             onSubmitError: (state) => console.log('onerr', state),
             beforeSubmit: (state) => console.log("before submit", state),
             afterSubmit: (state) => console.log("after submit", state),
+            showPayButton: true
         };
         
         const checkoutInstance = new window.Checkout.Checkout(config);

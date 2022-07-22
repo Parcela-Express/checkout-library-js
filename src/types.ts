@@ -36,6 +36,8 @@ export type CustomerData = {
   has_split_rules?: boolean;
   confirmation_required?: boolean;
   extract_identification?: string;
+  active_3ds?: boolean;
+  risk_custom_field?: string;
 }
 
 export type CheckoutConfiguration = {
@@ -51,6 +53,7 @@ export type CheckoutConfiguration = {
   onSubmitError?: (state: any) => void;
   beforeSubmit?: (state: any) => void;
   afterSubmit?: (state: any) => void;
+  showPayButton?: boolean;
 };
 
 export type ParsedData = {
@@ -68,6 +71,8 @@ export type ParsedData = {
   split_rules?: Splits[];
   confirmation_required?: boolean;
   extract_identification?: string;
+  active_3ds?: boolean;
+  risk_custom_field?: string;
 }
 
 type CardAttributes = {

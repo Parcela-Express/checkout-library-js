@@ -18,6 +18,7 @@ export class Checkout {
   private onSubmitError: (state: any) => void;
   private beforeSubmit: (state: any) => void;
   private afterSubmit: (state: any) => void;
+  private showPayButton?: boolean;
 
   constructor(config: CheckoutConfiguration) {
     if (!config) {
@@ -37,6 +38,7 @@ export class Checkout {
       onSubmitError,
       beforeSubmit,
       afterSubmit,
+      showPayButton,
     } = config;
 
     this.environment = environment;
@@ -51,13 +53,14 @@ export class Checkout {
     this.onSubmitError = onSubmitError;
     this.beforeSubmit = beforeSubmit;
     this.afterSubmit = afterSubmit;
+    this.showPayButton = showPayButton;
   }
 
   mount(domNodeContainer: string) {
     const elementToRender = document.getElementById(domNodeContainer);
     const threeCheckout = document.createElement("div");
     threeCheckout.setAttribute("id", "three-checkout");
-    document.body.insertBefore(threeCheckout, elementToRender);
+    elementToRender.appendChild(threeCheckout);
 
     if (!elementToRender) {
       throw `Element with id of ${domNodeContainer} not found`;
@@ -69,7 +72,8 @@ export class Checkout {
       clientKey: this.clientKey,
       paymentMethodsResponse: paymentMethods,
       hasHolderName: true,
-      showPayButton: true,
+      showPayButton:
+        this.showPayButton !== undefined ? this.showPayButton : true,
       translations: {
         "pt-br": {
           payButton: "Pagamento",
@@ -110,6 +114,7 @@ export class Checkout {
           errorReturnUrl: this.errorReturnUrl,
           apiUrl: this.apiUrl,
           sellerKey: this.sellerKey,
+          showPayButton: this.showPayButton,
         });
 
         if (error) {
@@ -160,6 +165,14 @@ export class Checkout {
 
           if (this.errorReturnUrl) {
             parsedData.error_return_url = this.errorReturnUrl;
+          }
+
+          if (this.customerData.active_3ds) {
+            parsedData.active_3ds = this.customerData.active_3ds;
+          }
+
+          if (this.customerData.risk_custom_field) {
+            parsedData.risk_custom_field = this.customerData.risk_custom_field;
           }
 
           if (

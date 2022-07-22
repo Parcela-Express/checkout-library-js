@@ -73,7 +73,8 @@ const customerData = {
             seller_id: "99d1f231-557a-44b9-ae5d-9b5f533c684e",
         }
     ],
-    confirmation_required: false
+    confirmation_required: false,
+    active_3ds: true
 }
 
 const config = {
@@ -89,6 +90,7 @@ const config = {
     onSubmitError: (state) => console.log('onerr', state),
     beforeSubmit: (state) => console.log("before submit", state),
     afterSubmit: (state) => console.log("after submit", state),
+    showPayButton: true
 };
 
 const checkoutInstance = new window.Checkout.Checkout(config);
