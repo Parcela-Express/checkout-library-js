@@ -23,6 +23,8 @@ type InstallmentPlan = {
 type Splits = {
   amount: number;
   seller_id: string;
+  no_cost?: boolean;
+  description?: string;
 }
 
 export type CustomerData = {

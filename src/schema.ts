@@ -35,6 +35,8 @@ const schema = Joi.object({
     Joi.object({
       amount: Joi.number().required(),
       seller_id: Joi.string().required(),
+      no_cost: Joi.boolean(),
+      description: Joi.string(),
     })
   ),
   extract_identification: Joi.string(),
