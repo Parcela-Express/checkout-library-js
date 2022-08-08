@@ -41,6 +41,7 @@ export type CustomerData = {
   active_3ds?: boolean;
   risk_custom_field?: string;
   service_id?: string;
+  protocol?: string;
 }
 
 export type CheckoutConfiguration = {
@@ -77,6 +78,7 @@ export type ParsedData = {
   active_3ds?: boolean;
   risk_custom_field?: string;
   service_id?: string;
+  protocol?: string;
 }
 
 type CardAttributes = {
