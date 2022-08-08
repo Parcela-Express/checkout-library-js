@@ -175,6 +175,10 @@ export class Checkout {
             parsedData.service_id = this.customerData.service_id;
           }
 
+          if (this.customerData.protocol) {
+            parsedData.protocol = this.customerData.protocol;
+          }
+
           if (this.customerData.risk_custom_field) {
             parsedData.risk_custom_field = this.customerData.risk_custom_field;
           }

@@ -77,7 +77,8 @@ const customerData = {
     ],
     confirmation_required: false,
     active_3ds: true,
-    service_id: "seu id (opcional)"
+    service_id: "seu id (opcional)",
+    protocol: "PROTOCOLO123658 (opcional)"
 }
 
 const config = {
