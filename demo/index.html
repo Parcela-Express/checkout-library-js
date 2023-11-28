@@ -3,17 +3,20 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="build/index.css" />
-    <title>Document</title>
+    <link rel="stylesheet" href="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.css" />
+    <title>Checkout Component</title>
   </head>
   <body>
+    <script src="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.js"></script>
     <style>
         #container {
             max-width: 600px;
             margin: auto;
+            border: 1px solid black;
+            padding: 15px;
+            border-radius: 10px;
         }
     </style>
-    <script src="build/index.js"></script>
     <div id="container">
       <div id="checkout-container"></div>
     </div>
@@ -21,7 +24,7 @@
       const customerData = {
         amount_cents: 20000,
         description: "Venda Teste",
-        form_payment: "debit",
+        form_payment: "credit",
         installment_plan: {
           number_installments: 1,
         },
@@ -41,7 +44,7 @@
           },
         },
         pre_capture: false,
-        has_split_rules: true,
+        has_split_rules: false,
         split_rules: [
           {
             amount: 10000,
@@ -54,9 +57,11 @@
           }
         ],
         confirmation_required: false,
-        active_3ds: true,
+        active_3ds: false,
         service_id: "seu id (opcional)",
-        protocol: "PROTOCOLO123658"
+        protocol: "PROTOCOLO123658",
+        recurrence: false,
+        recurrence_day: 10
       };
       const config = {
         clientKey: "test_IBIF7UD6SNB7ZJG3KVEGM3UP5M57BJ4B",

@@ -191,6 +191,14 @@ export class Checkout {
             parsedData.split_rules = this.customerData.split_rules;
           }
 
+          if (
+            this.customerData.recurrence &&
+            this.customerData.recurrence_day
+          ) {
+            parsedData.recurrence = this.customerData.recurrence;
+            parsedData.recurrence_day = this.customerData.recurrence_day;
+          }
+
           const baseUrl =
             this.apiUrl || "https://api-prod.parcelaexpress.com.br";
 
