@@ -42,6 +42,8 @@ export type CustomerData = {
   risk_custom_field?: string;
   service_id?: string;
   protocol?: string;
+  recurrence?: boolean;
+  recurrence_day?: number;
 }
 
 export type CheckoutConfiguration = {
@@ -79,6 +81,8 @@ export type ParsedData = {
   risk_custom_field?: string;
   service_id?: string;
   protocol?: string;
+  recurrence?: boolean;
+  recurrence_day?: number;
 }
 
 type CardAttributes = {
