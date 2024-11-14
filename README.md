@@ -1,25 +1,24 @@
 # Parcela Express Checkout Library JS
 
-[![npm](https://img.shields.io/npm/v/@parcelaexpress/checkout-library-js.svg)](https://www.npmjs.com/package/@parcelaexpress/checkout-library-js)
+## Importação
 
-## Instalação
-
-Esse pacote é um módulo [Node.js](https://nodejs.org/en/) disponibilizado pelo 
-[npm](https://www.npmjs.com/).
-
-Siga as instruções abaixo para realizar a instalação do componente em sua aplicação.
-
-1. Instale o componente [Parcela Checkout Library JS](https://www.npmjs.com/package/@parcelaexpress/checkout-library-js):
+Siga as instruções abaixo para realizar a instalação da biblioteca em sua aplicação.
 
   ```sh
-  npm install @parcelaexpress/checkout-library-js --save
+  ...
+    <link rel="stylesheet" href="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.css" />
+  </head>
+  ...
   ```
 
   ```sh
-  yarn add @parcelaexpress/checkout-library-js
+  ...
+  <body>
+    <script src="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.js"></script>
+  ...
   ```
 
-## Instalação
+## Uso
 
 O componente pode ser usado da seguinte forma:
 
@@ -36,15 +35,13 @@ Importe o componente dentro de sua aplicação e adicione uma div container para
 
 #### **`index.js`**
   ```js
-import * as ParcelaChekout from '@parcelaexpress/checkout-library-js';
-import '@parcelaexpress/checkout-library-js/lib/main.css';
 
 const customerData = {
-    amount_cents: 1000,
+    amount_cents: 1000, //Valor em centavos
     description: "Venda Teste",
-    form_payment: "debit",
+    form_payment: "credit",
     installment_plan: {
-        number_installments: 1,
+        number_installments: 1, //Número de parcelas
     },
     customer: {
         email: "teste@fulano.com.br",
@@ -61,7 +58,6 @@ const customerData = {
             street: "Rua Adamina",
         },
     },
-    pre_capture: false,
     has_split_rules: true,
     split_rules: [
         {
@@ -84,7 +80,7 @@ const customerData = {
 const config = {
     clientKey: 'test_IBIF7UD6SNB7ZJG3KVEGM3UP5M57BJ4B',
     environment: 'TEST',
-    apiUrl: "https://sandbox.parcelaexpress.com.br/",
+    apiUrl: "https://sandbox.parcelaexpress.com.br",
     sellerKey: "e137d1b6-8f84-4377-ab5c-d27dd24415bd",
     successReturnUrl: "https://success-url.com.br",
     errorReturnUrl: "https://error-url.com.br",
