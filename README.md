@@ -100,7 +100,7 @@ checkoutInstance.mount('checkout-container');
 
 Os campos has_split_rules e split_rules(opcionais) são usados para dividir o valor da venda entre os estabelecimentos
 
-#### **`Para Estilizar os campos do componente basta utilizar as seguintes classes no seu próprio css:`**
+#### **`Para Estilizar o componente basta utilizar as seguintes classes no seu próprio css:`**
 
 ```
 .adyen-checkout__payment-method {
