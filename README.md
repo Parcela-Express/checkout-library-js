@@ -6,7 +6,7 @@ Siga as instruções abaixo para realizar a instalação da biblioteca em sua ap
 
   ```sh
   ...
-    <link rel="stylesheet" href="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.css" />
+    <link rel="stylesheet" href="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v2.0.0/index.css" />
   </head>
   ...
   ```
@@ -14,7 +14,7 @@ Siga as instruções abaixo para realizar a instalação da biblioteca em sua ap
   ```sh
   ...
   <body>
-    <script src="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.js"></script>
+    <script src="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v2.0.0/index.js"></script>
   ...
   ```
 
@@ -90,7 +90,8 @@ const config = {
     onSubmitError: (state) => console.log('onerr', state),
     beforeSubmit: (state) => console.log("before submit", state),
     afterSubmit: (state) => console.log("after submit", state),
-    showPayButton: true
+    showPayButton: true,
+    maskSecurityCode: false
 };
 
 const checkoutInstance = new window.Checkout.Checkout(config);

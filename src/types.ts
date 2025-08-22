@@ -1,3 +1,5 @@
+import { CoreConfiguration } from '@adyen/adyen-web';
+
 type BillingAddress = {
   city: string;
   country: string;
@@ -47,7 +49,7 @@ export type CustomerData = {
 }
 
 export type CheckoutConfiguration = {
-  environment: string;
+  environment: CoreConfiguration["environment"];
   clientKey: string;
   apiUrl?: string;
   sellerKey: string;
@@ -60,6 +62,7 @@ export type CheckoutConfiguration = {
   beforeSubmit?: (state: any) => void;
   afterSubmit?: (state: any) => void;
   showPayButton?: boolean;
+  maskSecurityCode?: boolean;
 };
 
 export type ParsedData = {

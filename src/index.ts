@@ -1,12 +1,18 @@
 import "./index.css";
 
-import AdyenCheckout from "@adyen/adyen-web";
+import {
+  AdyenCheckout,
+  Card,
+  CardConfiguration,
+  CoreConfiguration,
+  ThreeDS2ChallengeConfiguration,
+} from "@adyen/adyen-web";
 import { paymentMethods } from "./payment-methods";
 import schema from "./schema";
 import { CheckoutConfiguration, CustomerData, ParsedData } from "./types";
 
 export class Checkout {
-  private environment: string;
+  private environment: CoreConfiguration["environment"];
   private clientKey: string;
   private apiUrl: string;
   private sellerKey: string;
@@ -19,6 +25,7 @@ export class Checkout {
   private beforeSubmit: (state: any) => void;
   private afterSubmit: (state: any) => void;
   private showPayButton?: boolean;
+  private maskSecurityCode?: boolean;
 
   constructor(config: CheckoutConfiguration) {
     if (!config) {
@@ -39,6 +46,7 @@ export class Checkout {
       beforeSubmit,
       afterSubmit,
       showPayButton,
+      maskSecurityCode,
     } = config;
 
     this.environment = environment;
@@ -54,24 +62,26 @@ export class Checkout {
     this.beforeSubmit = beforeSubmit;
     this.afterSubmit = afterSubmit;
     this.showPayButton = showPayButton;
+    this.maskSecurityCode = maskSecurityCode || false;
   }
 
-  mount(domNodeContainer: string) {
+  async mount(domNodeContainer: string) {
     const elementToRender = document.getElementById(domNodeContainer);
     const threeCheckout = document.createElement("div");
     threeCheckout.setAttribute("id", "three-checkout");
-    elementToRender.appendChild(threeCheckout);
+    const container = elementToRender?.parentNode;
+    container.insertBefore(threeCheckout, elementToRender);
 
     if (!elementToRender) {
       throw `Element with id of ${domNodeContainer} not found`;
     }
 
-    const configuration = {
+    const configuration: CoreConfiguration = {
       locale: "pt-br",
+      countryCode: "pt-br",
       environment: this.environment,
       clientKey: this.clientKey,
       paymentMethodsResponse: paymentMethods,
-      hasHolderName: true,
       showPayButton:
         this.showPayButton !== undefined ? this.showPayButton : true,
       translations: {
@@ -79,24 +89,9 @@ export class Checkout {
           payButton: "Pagamento",
         },
       },
-      styles: {
-        base: {
-          color: "#001b2b",
-          fontSize: "12px",
-          fontFamily: "Arial",
-          fontWeight: "400",
-        },
-        placeholder: {
-          color: "#90a2bd",
-          fontWeight: "200",
-        },
-        error: {
-          color: "#001b2b",
-        },
-      },
     };
 
-    const adyenCheckout = new AdyenCheckout(configuration);
+    const adyenCheckout = await AdyenCheckout(configuration);
 
     const callbacks = {
       onChange: (state: any) => {
@@ -122,7 +117,7 @@ export class Checkout {
             console.error(error);
             return this.onSubmitError(error.message);
           } else {
-            console.error(error);
+            console.log(error);
             return error.message;
           }
         }
@@ -220,19 +215,11 @@ export class Checkout {
 
               if (res.action) {
                 const { action } = res;
-                const threeDSConfiguration = {
+                const threeDSConfiguration: ThreeDS2ChallengeConfiguration = {
                   size: "02",
                 };
 
-                const configuration = {
-                  locale: "pt_BR",
-                  environment: this.environment,
-                  clientKey: this.clientKey,
-                  onAdditionalDetails: () => {},
-                };
-
-                const checkout = new AdyenCheckout(configuration);
-                checkout
+                adyenCheckout
                   .createFromAction(action, threeDSConfiguration)
                   .mount("#three-checkout");
               } else {
@@ -240,6 +227,7 @@ export class Checkout {
               }
             })
             .catch((err) => {
+              console.log(err);
               if (this.onSubmitError) {
                 reject(this.onSubmitError(err.message));
               } else {
@@ -256,6 +244,16 @@ export class Checkout {
       },
     };
 
-    adyenCheckout.create("card", callbacks).mount(elementToRender);
+    const cardConfiguration: CardConfiguration = {
+      maskSecurityCode: this.maskSecurityCode,
+      hasHolderName: true,
+      holderNameRequired: false,
+      onChange: callbacks.onChange,
+      onSubmit: callbacks.onSubmit,
+    };
+
+    new Card(adyenCheckout, cardConfiguration).mount(
+      elementToRender
+    );
   }
 }

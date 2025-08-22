@@ -3,11 +3,11 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.css" />
+    <link rel="stylesheet" href="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v2.0.0/index.css" />
     <title>Checkout Component</title>
   </head>
   <body>
-    <script src="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v1.7.0/index.js"></script>
+    <script src="https://parcela-sub-api-components.s3.us-east-1.amazonaws.com/checkout-library-js/v2.0.0/index.js"></script>
     <style>
         #container {
             max-width: 600px;
@@ -57,7 +57,7 @@
           }
         ],
         confirmation_required: false,
-        active_3ds: false,
+        active_3ds: true,
         service_id: "seu id (opcional)",
         protocol: "PROTOCOLO123658",
         recurrence: false,
@@ -77,6 +77,7 @@
         beforeSubmit: (state) => console.log("before submit", state),
         afterSubmit: (state) => console.log("after submit", state),
         showPayButton: true,
+        maskSecurityCode: false
       };
 
       const checkoutInstance = new window.Checkout.Checkout(config);
